@@ -2,7 +2,8 @@
 
 Public signed **macOS arm64 binary updates only**. Application source remains private.
 
-The initial v0.2.0 updater-enabled application must be installed manually. Later stable
+The first verified public updater release is [v0.2.2](https://github.com/qinsehm1128/tg-companion-updates/releases/tag/v0.2.2).
+An existing v0.1.0 application must be upgraded manually once. Later stable
 `vMAJOR.MINOR.PATCH` releases are offered at:
 
 https://github.com/qinsehm1128/tg-companion-updates/releases/latest/download/latest.json
