@@ -1,0 +1,13 @@
+{
+  "version": "0.2.2",
+  "notes": "macOS arm64 release. Ad-hoc signed; not Apple notarized.",
+  "pub_date": "2026-10-27T18:08:05.750851Z",
+  "platforms": {
+    "darwin-aarch64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSODRPVGJVbHpWQ3d4VXdXRXJYejBuWklIRko0eUdRNUZ0K3pOYzBtcE5SSTBtTWlzQU8wUVRtWU5GK3VKbkJtcGJMZE1xb0Z1RzZ2cjRqOUJJTjVqTVNReUNheUxXOUFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMTI0NDg1CWZpbGU6VGVsZWdyYW0gQ29tcGFuaW9uLmFwcC50YXIuZ3oJdmVyc2lvbjowLjIuMgpYa3pwUGFJZklIZnlNRkxmM09sY3BRWWFhblAzb0JuNHEyMEtXWTZFVmowdnptemhjbmQvTy91V0ZtMUNGcDEwb0FDcDFITHpDTFkycEJnSmxVYXdDQT09Cg==",
+      "url": "https://github.com/qinsehm1128/tg-companion-updates/releases/download/v0.2.2/Telegram-Companion_0.2.2_darwin-aarch64.app.tar.gz",
+      "size": 19119533,
+      "sha256": "aadd03b6019782bd323c1f3a0828c752199b2fb7533d0b5e186167428f48f186"
+    }
+  }
+}
