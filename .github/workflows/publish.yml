@@ -1,0 +1,38 @@
+name: Verify and publish signed binary update
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+concurrency:
+  group: public-update-latest
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'qinsehm1128/tg-companion-updates'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: '25'
+      - name: Verify only approved infrastructure and binary assets exist
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          python3 -B - <<'PY'
+          from pathlib import Path
+          root=Path('.')
+          allowed={'README.md','.github/workflows/publish.yml','scripts/verify-update.py','scripts/updater-public-key.txt'}
+          actual={str(p) for p in root.rglob('*') if p.is_file() and '.git' not in p.parts and 'assets' not in p.parts}
+          if actual != allowed: raise SystemExit('Unexpected public repository infrastructure files')
+          PY
+          python3 scripts/verify-update.py check --tag "$RELEASE_TAG" --directory assets
+      - name: Create draft, upload all verified assets, then publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python3 scripts/verify-update.py publish --tag "$RELEASE_TAG" --directory assets
